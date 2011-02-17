@@ -12,6 +12,11 @@
   <%= yield(:head) %>
 </head>
 <body>
+
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+
   <header>
     <h1><a href="<%= root_url %>"><%= enki_config[:title] %></a></h1>
 
