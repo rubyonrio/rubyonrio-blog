@@ -4,6 +4,7 @@ class TwitterAuthController < ApplicationController
     load_admins
     user = request.env['rack.auth']['user_info']['nickname']
     if @users.include?(user)
+      flash[:notice] = "Logado com sucesso."
       return successful_login(user)
     else
       flash[:notice] = "Você não está autorizado a acessar esta área."
@@ -11,6 +12,10 @@ class TwitterAuthController < ApplicationController
     end
   end
 
+  def destroy
+    session[:logged_in] = false
+    redirect_to root_url, :notice => "Deslogado com sucesso."
+  end
 
   protected
 

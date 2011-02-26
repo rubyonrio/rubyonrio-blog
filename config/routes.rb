@@ -1,4 +1,6 @@
 Enki::Application.routes.draw do
+  resources :images
+
   namespace 'admin' do
     resources :posts, :pages do
       post 'preview', :on => :collection
@@ -17,6 +19,7 @@ Enki::Application.routes.draw do
   resources :pages, :only => [:show]
 
   match '/auth/twitter/callback', :to => 'twitter_auth#create'
+  match "/signout" => "twitter_auth#destroy", :as => :signout
 
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
     post ':year/:month/:day/:slug/comments' => 'comments#index'

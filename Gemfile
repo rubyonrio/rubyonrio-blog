@@ -26,6 +26,7 @@ gem 'coderay'
 gem 'lesstile'
 gem 'formtastic'
 gem 'will_paginate', '= 3.0.pre2'
+gem 'fleximage', :git => 'https://github.com/CidadelasIT/fleximage.git'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

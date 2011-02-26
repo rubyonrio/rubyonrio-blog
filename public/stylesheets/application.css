@@ -38,6 +38,16 @@ footer .ruby-icon{
   vertical-align: middle;
 }
 
+/* Alert Messages */
+.notice{
+  background: #cfc;
+  border: 1px solid #9f9;
+  color: #0a0;
+  padding: 10px;
+  margin: 0 20%;
+  text-align: center;
+}
+
 /* Headings */
 header h1{
   padding: 10px 0 15px;
