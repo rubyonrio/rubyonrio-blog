@@ -12,3 +12,4 @@ vendor/*
 public/.htaccess
 config/initializers/omniauth.rb
 public/images/uploads/
+
