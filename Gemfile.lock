@@ -187,10 +187,8 @@ DEPENDENCIES
   lesstile
   mysql2
   omniauth
-  rack-openid
   rails (= 3.0.4)
   rspec
   rspec-rails
-  ruby-openid
   webrat
   will_paginate (= 3.0.pre2)
