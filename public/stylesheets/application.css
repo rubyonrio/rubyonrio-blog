@@ -493,3 +493,14 @@ ol.CodeRay li { white-space: pre }
 .v  { color:#036 }
 .xt { color:#444 }
 
+#co1 .tweet {
+  float: right;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 240px; }
+
+#co1 .tweet .apoio{
+  margin: 20px 0;}
+
+#co1 .tweet .apoio p{
+  margin: px 0;}

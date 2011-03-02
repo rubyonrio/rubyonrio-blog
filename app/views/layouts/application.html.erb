@@ -9,6 +9,11 @@
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'rails' %>
   <%= open_id_delegation_link_tags(enki_config[:open_id_delegation, :server], enki_config[:open_id_delegation, :delegate]) if enki_config[:open_id_delegation] %>
+
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'jquery.tweet' %>
+  <%= javascript_include_tag 'jquery.tweet' %>
+
   <%= yield(:head) %>
 </head>
 <body>
@@ -31,6 +36,19 @@
     <section>
       <%= yield %>
     </section>
+
+      <div class="co1">
+        <div class="tweet"></div>
+	<div id="apoio">
+	  <p>Apoiamos:</p>
+	    <a href="http://hacknrio.org">
+	      <img src="images/hackinrio_banner_234_60.png" />
+	    </a>
+	  <a href="http://rubymastersconf.com" target="_blank">
+	    <img src="http://rubymastersconf.com/images/banner-02.png" title="Ruby Masters Conf - Edição 2011" width="238" />
+	  </a>
+	</div>
+      </div>
 
     <aside>
       <form method="get" id="sform" action="http://www.google.com/search">
