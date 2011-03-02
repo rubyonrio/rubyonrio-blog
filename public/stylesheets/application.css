@@ -66,7 +66,9 @@ h2{
   color: #333333;
   padding: .5em 0;
 }
-
+h3{
+  font-size: 1.8em;
+}
 h2 a, h3, h4, h5{
   color: #333333;
 }
@@ -87,7 +89,7 @@ strong{
   background-position: 0px 2px;
 }
 
-a {
+a{
   color: #a8a8a8;
   text-decoration: none;    
 }
@@ -177,15 +179,12 @@ article{
   background: #fff url(/images/rubyonrio/article-bg.png) repeat-x center top;
   padding: 2%;
   margin: 0 auto;
-  width: 960px;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  border-top: 1px solid #fff;
 }
 section{
   clear: both;
   float: left;
-  width: 73%;
+  width: 68%;
   min-height: 400px;
 }
 .empty{
@@ -195,7 +194,7 @@ section{
 }
 aside{
   float: right;
-  width: 25%;
+  width: 30%;
   padding-bottom: 1%;
 }
 div.meta
