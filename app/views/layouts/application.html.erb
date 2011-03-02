@@ -37,33 +37,33 @@
       <%= yield %>
     </section>
 
-      <div class="co1">
-        <div class="tweet"></div>
-	<div id="apoio">
-	  <p>Apoiamos:</p>
-	    <a href="http://hacknrio.org">
-	      <img src="images/hackinrio_banner_234_60.png" />
-	    </a>
-	  <a href="http://rubymastersconf.com" target="_blank">
-	    <img src="http://rubymastersconf.com/images/banner-02.png" title="Ruby Masters Conf - Edição 2011" width="238" />
-	  </a>
-	</div>
+    <aside>
+      <form method="get" id="sform" action="http://www.google.com/search">
+        <input type="text" id="q" value="" name="q" placeholder="Digite o que deseja buscar">
+        <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
+      </form>
+
+      <h3>Ruby on Rio é um grupo de <a title="Desenvolvedores ruby do Rio de Janeiro" href="/participantes">desenvolvedores de Ruby do Rio de Janeiro</a> que se <a title="Encontros regulares" href="/encontros">encontram regularmente</a> para trocar experiências, estudar e programar. Fique atento aos próximos eventos e <a title="Participe do Ruby on Rio" href="/pages/como-participar">participe</a>!</h3>
+
+      <h2>Twitter</h2>
+
+      <div class="tweet"></div>
+
+      <h2>Apoiamos:</h2>
+
+      <div id="apoio">
+        <a href="http://hacknrio.org">
+	  <img src="images/hackinrio_banner_234_60.png" />
+        </a>
+        <a href="http://rubymastersconf.com" target="_blank">
+	  <img src="http://rubymastersconf.com/images/banner-02.png" title="Ruby Masters Conf - Edição 2011" width="238" />
+        </a>
       </div>
 
-    <aside>
-      <h3>Ruby on Rio é um grupo de <a title="Desenvolvedores ruby do Rio de Janeiro" href="/participantes">desenvolvedores de Ruby do Rio de Janeiro</a> que se <a title="Encontros regulares" href="/encontros">encontram regularmente</a> para trocar experiências, estudar e programar. Fique atento aos próximos eventos e <a title="Participe do Ruby on Rio" href="/pages/como-participar">participe</a>!</h3>
-      <form method="get" id="sform" action="http://www.google.com/search">
-        <div>
-          <h2><label for="q">Search</label></h2>
-
-          <input type="text" id="q" value="" name="q">
-          <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
-        </div>
-      </form>
 
       <% unless category_links_for_navigation.empty? -%>
       <h2>Categories</h2>
-      <ul>
+      <ul id="categories">
         <% category_links_for_navigation.each do |link| -%>
         <li><%= link_to(link.name, link.url) %></li>
         <% end -%>
