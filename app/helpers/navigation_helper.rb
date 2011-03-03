@@ -1,7 +1,7 @@
 module NavigationHelper
   def page_links_for_navigation
     link = Struct.new(:name, :url)
-    [link.new("Eventos", "/eventos"),
+    [link.new("Eventos", posts_path(:tag => "eventos")),
      link.new("Participantes", "/participantes")] +
       Page.find(:all, :order => 'title').collect {|page| link.new(page.title, page_path(page.slug))}
   end
