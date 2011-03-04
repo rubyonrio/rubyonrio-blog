@@ -1,4 +1,5 @@
 Enki::Application.routes.draw do
+
   resources :images
 
   namespace 'admin' do
@@ -6,6 +7,7 @@ Enki::Application.routes.draw do
       post 'preview', :on => :collection
     end
     resources :comments
+    resources :members
     resources :undo_items do
       post 'undo', :on => :member
     end
