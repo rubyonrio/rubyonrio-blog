@@ -44,7 +44,7 @@ class Admin::MembersController < Admin::BaseController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to(@member, :notice => 'Member was successfully created.') }
+        format.html { redirect_to(:action => 'show', :id => @member, :notice => 'Member was successfully created.') }
         format.xml  { render :xml => @member, :status => :created, :location => @member }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class Admin::MembersController < Admin::BaseController
 
     respond_to do |format|
       if @member.update_attributes(params[:member])
-        format.html { redirect_to(@member, :notice => 'Member was successfully updated.') }
+        format.html { redirect_to(:action => 'show', :id => @member, :notice => 'Member was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class Admin::MembersController < Admin::BaseController
     @member.destroy
 
     respond_to do |format|
-      format.html { redirect_to(members_url) }
+      format.html { redirect_to(admin_members_url) }
       format.xml  { head :ok }
     end
   end
