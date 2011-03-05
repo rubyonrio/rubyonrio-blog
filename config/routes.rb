@@ -1,7 +1,5 @@
 Enki::Application.routes.draw do
 
-  resources :images
-
   namespace 'admin' do
     resources :posts, :pages do
       post 'preview', :on => :collection
