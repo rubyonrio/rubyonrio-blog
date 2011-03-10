@@ -15,6 +15,7 @@ Enki::Application.routes.draw do
     root :to => 'dashboard#show'
   end
 
+  resources :members, :only => [:index, :show]
   resources :archives, :only => [:index]
   resources :pages, :only => [:show]
 
