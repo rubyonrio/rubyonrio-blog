@@ -5,7 +5,7 @@ gem 'rails', '3.0.4'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'omniauth'
+gem 'omniauth', '0.2.0.beta5'
 gem 'ruby-github'
 
 # Use unicorn as the web server
