@@ -2,7 +2,7 @@
 class TwitterAuthController < ApplicationController
   def create
     load_admins
-    user = request.env['rack.auth']['user_info']['nickname']
+    user = request.env['omniauth.auth']['user_info']['nickname']
     if @users.include?(user)
       flash[:notice] = "Logado com sucesso."
       return successful_login(user)
