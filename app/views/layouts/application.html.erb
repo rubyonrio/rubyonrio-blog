@@ -29,6 +29,7 @@
   </header>
   
   <article>
+    <!-- TODO: Descobrir porque o flash[:notice] não está funcionando.-->
     <% if flash[:notice] %>
     <%= content_tag(:p, flash[:notice], :class => :notice) %>
     <% end %>
