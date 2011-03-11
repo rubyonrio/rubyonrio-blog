@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 
 describe "members/index.html.erb" do
   before(:each) do
@@ -13,7 +13,7 @@ describe "members/index.html.erb" do
   end
 
   it "renders a list of members" do
-    render
+    render :template => '/admin/members/index.html.erb'
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Username".to_s, :count => 2
   end

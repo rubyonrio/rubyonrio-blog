@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 
 describe "members/show.html.erb" do
   before(:each) do

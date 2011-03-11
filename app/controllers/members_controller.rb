@@ -3,7 +3,7 @@ class MembersController < ApplicationController
     @members = Member.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @members }
     end
   end
@@ -12,7 +12,7 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.xml  { render :xml => @member }
     end
   end

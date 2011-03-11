@@ -1,6 +1,6 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 
-describe "members/new.html.erb" do
+describe "admin/members/new.html.erb" do
   before(:each) do
     assign(:member, stub_model(Member,
       :username => "MyString"
@@ -8,7 +8,7 @@ describe "members/new.html.erb" do
   end
 
   it "renders new member form" do
-    render
+    render :template => '/admin/members/new.html.erb'
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => members_path, :method => "post" do
