@@ -15,12 +15,14 @@ Enki::Application.routes.draw do
     root :to => 'dashboard#show'
   end
 
-  resources :members, :only => [:index, :show]
+  resources :members, :only => [:index, :show], :path => :participantes
   resources :archives, :only => [:index]
   resources :pages, :only => [:show]
 
   match '/auth/twitter/callback', :to => 'twitter_auth#create'
   match "/signout" => "twitter_auth#destroy", :as => :signout
+
+  match '/membro/:username' => 'members#show', :as => :member
 
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
     post ':year/:month/:day/:slug/comments' => 'comments#index'

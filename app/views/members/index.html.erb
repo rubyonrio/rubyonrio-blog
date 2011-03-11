@@ -1,12 +1,12 @@
-<h1>Listing members</h1>
+<h2>Listando <%= @members.count %> Participantes</h2>
 
-<table>
-  <tr>
-    <th>Username</th>
-  </tr>
-<% @members.each do |member| %>
-  <tr>
-    <td><%= link_to member.username, member_path(member) %></td>
-  </tr>
-<% end %>
-</table>
+<ul class="members">
+  <% @members.each do |member| %>
+    <li>
+      <span class="avatar"><%= image_tag member.avatar(50) %></span>
+      <span class="name"><%= member.name %></span>
+      <span class="location"><%= member.location %></span>
+      <span class="more"><%= link_to '+info', member_path(member.username) %></span>
+    </li>
+  <% end %>
+</ul>

@@ -9,7 +9,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find(params[:id])
+    @member = Member.find_by_username(params[:username])
 
     respond_to do |format|
       format.html

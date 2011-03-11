@@ -1,8 +1,19 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Username:</b>
-  <%= @member.username %>
-</p>
-
-<%= link_to 'Back', members_path %>
+<div class="member member-<%= @member.id %>">
+    <h2>Membro RubyOnRio: <%= @member.name %></h2>
+    <p class="avatar"><%= image_tag @member.avatar(100) %></p>
+    <p class="name"><%= @member.name %></p>
+    <p class="company"><%= @member.company %></p>
+    <p class="location"><%= @member.location %></p>
+    <p class="blog"><%= link_to 'blog', @member.blog %></p>
+    <p class="github"><%= link_to 'github', @member.github %></p>
+</div>
+<div id="github-badge"></div>
+<script type="text/javascript" charset="utf-8">
+  GITHUB_USERNAME="<%= @member.username %>";
+  GITHUB_THEME="white";
+  GITHUB_TITLE = "Repositórios de <%= @member.name %>"
+  GITHUB_SHOW_ALL = "Mostrar todos"
+</script>
+<script src="http://drnic.github.com/github-badges/dist/github-badge-launcher.js" type="text/javascript"></script>
+<%= link_to 'Voltar', members_path %>
