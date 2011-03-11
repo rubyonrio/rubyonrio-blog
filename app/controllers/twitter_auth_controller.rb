@@ -31,7 +31,8 @@ class TwitterAuthController < ApplicationController
       "lucianosousa",
       "raph_almeida",
       "yuizinha",
-      "tauil"
+      "tauil",
+      "shingonoide"
     ]
   end
 end
