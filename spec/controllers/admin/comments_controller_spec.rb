@@ -11,7 +11,7 @@ describe Admin::CommentsController do
 
     it("is successful")               { response.should be_success }
     it("renders index template")      { response.should render_template('index') }
-    it("finds comments for the view") { assigns[:comments].should == @comments }
+    it("finds comments for the view") { assigns[:comments].should @comments }
   end
 
   describe 'handling GET to show' do
