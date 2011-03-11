@@ -37,4 +37,5 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'hpricot'
+  gem 'sqlite3-ruby'
 end
