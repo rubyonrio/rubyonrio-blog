@@ -5,7 +5,7 @@ class TwitterAuthController < ApplicationController
     user = request.env['omniauth.auth']['user_info']['nickname']
     if @users.include?(user)
       flash[:notice] = "Logado com sucesso."
-      return successful_login(user)
+      successful_login(user)
     else
       flash[:notice] = "Você não está autorizado a acessar esta área."
       redirect_to('/')
@@ -24,7 +24,7 @@ class TwitterAuthController < ApplicationController
     session[:nickname] = user.to_s
     redirect_to(admin_root_path)
   end
-  
+
   def load_admins
     @users = ["alobato",
       "fernandokosh",
