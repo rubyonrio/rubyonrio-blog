@@ -43,6 +43,7 @@
         <li><%= nav_link_to("Comments",  admin_comments_path,   :accesskey => '4') %></li>
         <li><%= nav_link_to("Actions",   admin_undo_items_path, :accesskey => '5') %></li>
         <li><%= nav_link_to("Health",    admin_health_path,     :accesskey => '6') %></li>
+        <li><%= nav_link_to("Members", admin_members_path,      :accesskey => '7') %> <%= nav_link_to("(+)", new_admin_member_path, :accesskey => 'm') %></li>
         <li class="separator">&nbsp;</li>
         <li><%= link_to("Logout", signout_path, :accesskey => 'l') %></li>
         <li><%= link_to("View Site", '/',             :accesskey => 'v', :title => 'View Site') %></li>
