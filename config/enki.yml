@@ -8,6 +8,14 @@ author:
   open_id:                      # These are used to login to the admin area
       - http://enkiblog.com
       - http://secondaryopenid.com
+  admins:
+    - shingonoide
+    - lucianosousa
+    - tauil
+    - yiuzinha
+    - raph_almeida
+    - fernandokosh
+    - alobato
 
 # Delete the following section if your site will not be acting as an OpenID delegate (http://wiki.openid.net/Delegation)
 # If you're deploying with mongrel, make sure you read http://rhnh.net/2008/04/13/nginx-openid-delegation-and-yadis

@@ -26,13 +26,10 @@ class TwitterAuthController < ApplicationController
   end
 
   def load_admins
-    @users = ["alobato",
-      "fernandokosh",
-      "lucianosousa",
-      "raph_almeida",
-      "yuizinha",
-      "tauil",
-      "shingonoide"
-    ]
+    @users = Enki::Config.default[:author, :admins]
+    Member.where(:admin => true).each do |member|
+      username = member.twitter_username
+      @users << username unless @users.include?(username)
+    end
   end
 end
