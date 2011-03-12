@@ -12,4 +12,6 @@
   <% end %>
 
   <%= form.input :username, :hint => "Github username" %>
+  <%= form.input :twitter, :hint => "Twitter username, same github if blank" %>
+  <%= form.input :admin, :collection => [["Yes", true], ["No", false]] %>
 <% end -%>

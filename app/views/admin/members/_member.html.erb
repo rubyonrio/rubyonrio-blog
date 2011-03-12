@@ -1,7 +1,8 @@
 <tr class="<%= cycle('', 'alt') %>">
   <td><%= member.username %></td>
   <td><%= member.name %></td>
-  <td><%= member.isadmin? %></td>
+  <td><%= member.twitter_username %></td>
+  <td><%= member.isadmin? ? 'Yes' : 'No' %></td>
   <td><%= link_to('Member page', member_path(member.username)) %></td>
   <td>
     <%= link_to(image_tag('silk/pencil.png', :alt => 'edit'), admin_member_path(member)) %>

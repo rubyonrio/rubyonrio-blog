@@ -43,7 +43,12 @@ class Member < ActiveRecord::Base
   end
 
   def isadmin?
-    false
+    self.admin
+  end
+
+  def twitter_username
+    return self.twitter unless self.twitter.blank?
+    self.username
   end
 
   def destroy_with_undo
