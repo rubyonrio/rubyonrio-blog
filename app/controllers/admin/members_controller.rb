@@ -1,35 +1,27 @@
 class Admin::MembersController < Admin::BaseController
+  before_filter :find_member, :only => [:show, :update, :destroy]
 
   def index
-    @members = Member.all
-
     respond_to do |format|
-      format.html
+      format.html {
+        @members = Member.paginate(
+          :order => "created_at DESC",
+          :page  => params[:page]
+        )
+      }
     end
   end
 
   def show
-    @member = Member.find(params[:id])
-
     respond_to do |format|
-      format.html
+      format.html {
+        render :partial => 'member', :locals => {:member => @member} if request.xhr?
+      }
     end
   end
 
   def new
     @member = Member.new
-
-    respond_to do |format|
-      format.html
-    end
-  end
-
-  def edit
-    @member = Member.find(params[:id])
-    respond_to do |format|
-      format.html
-    end
-
   end
 
   def create
@@ -49,24 +41,38 @@ class Admin::MembersController < Admin::BaseController
   end
 
   def update
-    @member = Member.find(params[:id])
-
     respond_to do |format|
       if @member.update_attributes(params[:member])
-        format.html { redirect_to(:action => 'show', :id => @member) }
+        flash[:notice] = 'Member updated successfully'
       else
-        format.html { render :action => "edit" }
+        flash[:notice] = 'Invalid username'
       end
+      format.html { redirect_to(:action => 'show', :id => @member) }
     end
   end
 
   def destroy
-    @member = Member.find(params[:id])
-    @member.destroy
+    undo_item = @member.destroy_with_undo
 
     respond_to do |format|
-      format.html { redirect_to(admin_members_url) }
+      format.html do
+        flash[:notice] = "Member '#{@member.username}' deleted"
+        redirect_to :action => 'index'
+      end
+      format.json {
+        render :json => {
+          :undo_path    => undo_admin_undo_item_path(undo_item),
+          :undo_message => undo_item.description,
+          :member         => @member.attributes
+        }.to_json
+      }
     end
+  end
+
+  protected
+
+  def find_member
+    @member = Member.find(params[:id])
   end
 end
 

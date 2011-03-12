@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-<%= render 'members/member' %>
-</p>
-
-
-<%= link_to "Edit #{@member.username}", edit_admin_member_path(@member) %> |
-<%= link_to 'Community members', admin_members_path %>
+<h1>Editing member - <%= link_to(@member.name, member_path(@member.username)) %></h1>
+<p><%= notice %></p>
+<%= semantic_form_for([:admin, @member]) do |form| -%>
+  <%= render :partial => 'form', :locals => {:form => form} %>
+  <fieldset class="inputs">Preview
+  <p>
+    <%= render 'members/member' %>
+  </p>
+  </fieldset>
+  <%= form.buttons do -%>
+    <%= form.commit_button("Save") -%>
+  <% end -%>
+<% end -%>

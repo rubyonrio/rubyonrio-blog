@@ -1,24 +1,25 @@
 class Member < ActiveRecord::Base
-  validates_presence_of :username
+  validates :username, :presence => true
+  before_save :github_username, :message => 'Invalid github username'
 
   def user
     @user ||= GitHub::API.user(self.username)
   end
 
   def name
-    user.name
+    user.name || user.login
   end
 
   def email
-    user.email
+    user.email || ''
   end
 
   def company
-    user.company
+    user.company || ''
   end
 
   def blog
-    user.blog
+    user.blog || ''
   end
 
   def github
@@ -38,7 +39,28 @@ class Member < ActiveRecord::Base
   end
 
   def location
-    user.location
+    user.location  || 'No location'
+  end
+
+  def isadmin?
+    false
+  end
+
+  def destroy_with_undo
+    transaction do
+      self.destroy
+      DeletePageUndo.create_undo(self)
+    end
+  end
+
+  private
+  def github_username
+    begin
+      @user = GitHub::API.user(username)
+    rescue
+      return false
+    end
+    true if name
   end
 end
 

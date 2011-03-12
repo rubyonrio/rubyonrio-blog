@@ -1,21 +1,35 @@
+<% content_for(:head) do -%>
+  <%= javascript_include_tag('admin/members.js') %>
+<% end -%>
+
 <h1>Community members (<%= @members.count %>)</h1>
-<% if @members.size > 0 then %>
-    <table>
-      <tr>
-        <th>Username</th>
-        <th colspan="3">Actions</th>
-      </tr>
-    <% @members.each do |member| %>
-      <tr>
-        <td><%= member.username %></td>
-        <td><%= link_to 'Show', admin_member_path(member) %></td>
-        <td><%= link_to 'Edit', edit_admin_member_path(member) %></td>
-        <td><%= link_to 'Destroy', admin_member_path(member), :confirm => 'Are you sure?', :method => :delete %></td>
-      </tr>
-    <% end %>
-    </table>
-<% end %>
 
-<br />
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Name</th>
+      <th>IsAdmin?</th>
+      <th>Link</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
 
-<%= link_to 'New Member', new_admin_member_path %>
+  <tbody>
+    <% if @members.empty? -%>
+      <tr><td colspan="5">There are no member at this time.</td></tr>
+    <% else -%>
+      <%= render :partial => 'member', :collection => @members %>
+    <% end -%>
+  </tbody>
+
+  <tfoot>
+    <% if @members.total_pages > 1 -%>
+      <tr class="pagination">
+        <td colspan='5'>
+          <%= will_paginate(@members, :previous_label => '« Newer', :next_label => 'Older »') %>
+        </td>
+      </tr>
+    <% end -%>
+  </tfoot>
+</table>
