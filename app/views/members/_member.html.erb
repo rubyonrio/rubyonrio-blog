@@ -1,0 +1,9 @@
+<div class="member member-<%= @member.id %>">
+  <h2>Membro RubyOnRio: <%= @member.name %></h2>
+  <p class="avatar"><%= image_tag @member.avatar(100) %></p>
+  <p class="name"><%= @member.name %></p>
+  <p class="company"><%= @member.company %></p>
+  <p class="location"><%= @member.location %></p>
+  <p class="blog"><%= link_to 'blog', @member.blog %></p>
+  <p class="github"><%= link_to 'github', @member.github %></p>
+</div>
