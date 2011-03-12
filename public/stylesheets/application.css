@@ -126,7 +126,7 @@ a:hover
 /* Two columns */
 #navigation{
   overflow: hidden;
-  width: 391px;
+  width: 100%;
   margin: 0 auto;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
