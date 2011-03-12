@@ -20,8 +20,8 @@ describe MembersController do
 
   describe "GET show" do
     it "assigns the requested member as @member" do
-      Member.stub(:find).with("37") { mock_member }
-      get :show, :id => "37"
+      Member.stub(:find_by_username).with("Username") { mock_member }
+      get :show, :username => "Username"
       assigns(:member).should be(mock_member)
     end
   end
