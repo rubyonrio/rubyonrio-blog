@@ -27,7 +27,7 @@ Enki::Application.routes.draw do
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
     post ':year/:month/:day/:slug/comments' => 'comments#index'
     get ':year/:month/:day/:slug/comments/new' => 'comments#new'
-    get ':year/:month/:day/:slug' => 'posts#show'
+    get ':year/:month/:day/:slug' => 'posts#show', :as => :post
   end
 
   scope :to => 'posts#index' do
@@ -36,4 +36,6 @@ Enki::Application.routes.draw do
   end
 
   root :to => 'posts#index'
+
+  match '/past/:year/:month/:day/:old_slug' => "posts#old_slug", :old_slug => /.*/
 end
