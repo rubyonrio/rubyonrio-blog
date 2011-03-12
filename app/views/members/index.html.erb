@@ -1,4 +1,4 @@
-<h2>Listando <%= @members.count %> Participantes</h2>
+<h2>Listando <%= @members.count %> Participantes <%= admin_link :members %></h2>
 
 <ul class="members">
   <% @members.each do |member| %>

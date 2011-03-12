@@ -17,4 +17,12 @@ module ApplicationHelper
       'base'   => error.last
     }[error.first.to_s]
   end
+
+  def logged_in?
+    session[:logged_in]
+  end
+
+  def admin_link(page)
+    link_to "Edit #{page.to_s}", send("admin_#{page.to_s}_path") if logged_in?
+  end
 end
