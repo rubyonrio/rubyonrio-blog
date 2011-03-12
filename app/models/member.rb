@@ -49,7 +49,7 @@ class Member < ActiveRecord::Base
   def destroy_with_undo
     transaction do
       self.destroy
-      DeletePageUndo.create_undo(self)
+      DeleteMemberUndo.create_undo(self)
     end
   end
 

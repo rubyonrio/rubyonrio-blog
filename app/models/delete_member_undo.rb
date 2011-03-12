@@ -23,7 +23,7 @@ class DeleteMemberUndo < UndoItem
   end
 
   class << self
-    def create_undo(page)
+    def create_undo(member)
       DeleteMemberUndo.create!(:data => member.attributes.to_yaml)
     end
   end
