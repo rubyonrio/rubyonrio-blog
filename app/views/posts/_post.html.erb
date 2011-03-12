@@ -1,3 +1,16 @@
+<% content_for(:head) do -%>
+  <script type="text/javascript">
+      var disqus_shortname = 'rubyonrio'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+<% end -%>
 <h2><%= link_to(post.title, post_path(post)) %></h2>
 <div class="entrybody">
   <%=raw post.body_html %>
@@ -5,7 +18,9 @@
 <div class="meta">
   <ul>
     <li class="date">Posted on <%= format_post_date(post.published_at) %></li>
-    <li class="comments"><%= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments')) %></li>
+    <li class="comments">
+      <%= link_to "Comments", disqus_url_path(post)+"#disqus_thread" %>
+    </li>
     <% unless post.tags.empty? -%>
     <li class="tags">Tagged <%= linked_tag_list(post.tags) %></li>
     <% end -%>
