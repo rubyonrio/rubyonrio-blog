@@ -1,7 +1,7 @@
 # Configuration options for your blog - customise to taste
 # This file contains no secret information, so can be stored in source control (unlike database.yml)
 title: Ruby on Rio
-url:   http://rubyonrio.com.br
+url:   http://rubyonrio.org
 author:
   name:    Ruby on Rio          # For copyright notice and ATOM feeds
   email:   rubyonrio@gmail.com  # Exception emails will go here, and it is used in ATOM feeds
