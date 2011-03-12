@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-  validates :username, :presence => true
+  validates :username, :presence => true, :uniqueness => true
   before_save :github_username, :message => 'Invalid github username'
 
   def user

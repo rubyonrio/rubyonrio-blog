@@ -6,7 +6,7 @@ class Admin::BaseController < ApplicationController
   protected
 
   def require_login
-    return redirect_to("/auth/twitter") unless session[:logged_in]
+    redirect_to("/auth/twitter") unless session[:logged_in]
   end
 
   def set_content_type

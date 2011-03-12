@@ -1,0 +1,12 @@
+<tr class="<%= cycle('', 'alt') %>">
+  <td><%= member.username %></td>
+  <td><%= member.name %></td>
+  <td><%= member.isadmin? %></td>
+  <td><%= link_to('Member page', member_path(member.username)) %></td>
+  <td>
+    <%= link_to(image_tag('silk/pencil.png', :alt => 'edit'), admin_member_path(member)) %>
+    <%= form_for(member, :as => :member, :url => admin_member_path(member), :html => {:class => 'delete-item', :method => :delete}) do |form| -%>
+      <%= image_submit_tag("silk/delete.png", :alt => 'Delete Member') %>
+    <% end -%>
+  </td>
+</tr>

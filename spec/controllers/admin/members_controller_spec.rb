@@ -12,9 +12,9 @@ describe Admin::MembersController do
 
   describe "GET index" do
     it "assigns all members as @members" do
-      Member.stub(:all) { @mock_member }
+      Member.stub(:paginate) { @mock_member }
       get :index
-      assigns(:members).should == @mock_member
+      assigns(:members).should be(@mock_member)
     end
   end
 
@@ -30,14 +30,6 @@ describe Admin::MembersController do
     it "assigns a new member as @member" do
       Member.stub(:new) { @mock_member }
       get :new
-      assigns(:member).should == @mock_member
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested member as @member" do
-      Member.stub(:find).with("37") { @mock_member }
-      get :edit, :id => "37"
       assigns(:member).should == @mock_member
     end
   end
@@ -103,7 +95,7 @@ describe Admin::MembersController do
       it "re-renders the 'edit' template" do
         Member.stub(:find) { mock_member(:update_attributes => false) }
         put :update, :id => "1"
-        response.should render_template("edit")
+        response.should render_template("show")
       end
     end
   end
@@ -111,7 +103,7 @@ describe Admin::MembersController do
   describe "DELETE destroy" do
     it "destroys the requested member" do
       Member.stub(:find).with("37") { @mock_member }
-      mock_member.should_receive(:destroy)
+      mock_member.should_receive(:destroy_with_undo)
       delete :destroy, :id => "37"
     end
 

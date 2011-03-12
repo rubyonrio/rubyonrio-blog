@@ -11,7 +11,7 @@ describe "admin/members/new.html.erb" do
     render :template => '/admin/members/new.html.erb'
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => members_path, :method => "post" do
+    assert_select "form", :action => admin_members_path, :method => "post" do
       assert_select "input#member_username", :name => "member[username]"
     end
   end
