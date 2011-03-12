@@ -1,35 +1,18 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 gem 'omniauth', '0.2.0.beta5'
 gem 'ruby-github'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
-
-# Bundle the extra gems:
 gem 'RedCloth', :require => 'redcloth'
-#gem 'ruby-openid', :require => 'openid'
-#gem 'rack-openid', :require => 'rack/openid'
 gem 'aaronh-chronic', :require => 'chronic' # Fixes for 1.9.2
 gem 'coderay'
 gem 'lesstile'
 gem 'formtastic'
 gem 'will_paginate', '= 3.0.pre2'
 
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
 group :development, :test do
   gem 'cucumber-rails'
   gem 'webrat'
@@ -37,5 +20,5 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'hpricot'
-  gem 'sqlite3-ruby'
 end
+
