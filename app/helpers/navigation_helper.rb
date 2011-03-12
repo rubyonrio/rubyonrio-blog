@@ -1,14 +1,16 @@
 module NavigationHelper
   def page_links_for_navigation
     link = Struct.new(:name, :url)
-    [link.new("Eventos", posts_path(:tag => "eventos")),
-     link.new("Participantes", members_path)] +
-      Page.find(:all, :order => 'title').collect {|page| link.new(page.title, page_path(page.slug))}
+    [
+     link.new("Home", root_path),
+     link.new("Eventos", posts_path(:tag => "eventos")),
+     link.new("Participantes", members_path)
+    ] + Page.order('title').collect {|page| link.new(page.title, page_path(page.slug))}
   end
 
   def category_links_for_navigation
     link = Struct.new(:name, :url)
-    @popular_tags ||= Tag.find(:all).reject {|tag| tag.taggings.empty? }.sort_by {|tag| tag.taggings.size }.reverse
+    @popular_tags ||= Tag.all.reject {|tag| tag.taggings.empty? }.sort_by {|tag| tag.taggings.size }.reverse
     @popular_tags.collect {|tag| link.new(tag.name, posts_path(:tag => tag.name)) }
   end
 
