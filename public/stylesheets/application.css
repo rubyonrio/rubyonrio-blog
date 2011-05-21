@@ -84,6 +84,15 @@ p{
 strong{
   font-weight: bold;
 }
+code {
+  white-space: pre;
+  display: block;
+  font-size: 12px;
+  width: 90%;
+  position: relative;
+  left: 25px;
+  right: 25px
+}
 .post ul, .post ol{
   padding: 0 0 0 3em;
   margin: 1em 0;
@@ -98,6 +107,7 @@ strong{
 .post li{
   margin: .2em 0;
 }
+
 /* Links */
 .openid
 {

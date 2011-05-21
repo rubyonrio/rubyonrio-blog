@@ -1,7 +1,13 @@
 <% content_for(:head) do -%>
   <%= javascript_include_tag 'common' %>
   <%= javascript_include_tag 'live-comment-preview' %>
+  <%= javascript_include_tag "../jquery-syntax/jquery.syntax.min" %>
 <% end -%>
+
+<% content_for(:footer) do -%>
+  <%= javascript_tag '$.syntax()' %>
+<% end -%>
+
 <% content_for(:page_title) do -%>
 <%= post_title(@post) -%>
 <% end -%>

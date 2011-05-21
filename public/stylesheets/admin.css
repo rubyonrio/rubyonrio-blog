@@ -186,6 +186,15 @@ form button {
   width: 600px;
   height: 450px;
 }
+code {
+  white-space: pre;
+  display: block;
+  font-size: 12px;
+  width: 90%;
+  position: relative;
+  left: 25px;
+  right: 25px
+}
 
 form fieldset { margin-bottom: 10px; width: 622px; padding: 10px; }
 form fieldset.buttons { text-align: center; }
