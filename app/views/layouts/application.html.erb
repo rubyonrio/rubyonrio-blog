@@ -14,6 +14,8 @@
   <%= stylesheet_link_tag 'jquery.tweet' %>
   <%= javascript_include_tag 'jquery.tweet' %>
 
+  <%= render "shared/head_mobile" if mobile? %>
+
   <%= yield(:head) %>
 </head>
 <body>

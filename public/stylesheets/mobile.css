@@ -1,0 +1,23 @@
+header {
+  width: 100%;
+  padding: 0 0 1em;
+}
+
+#navigation {
+  width: 90%;
+}
+
+#navigation li {
+  float: none;
+  border-right: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#navigation li:last-child {
+  border-bottom: 0;
+}
+
+section, aside {
+  float: none;
+  width: 100%;
+}
