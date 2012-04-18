@@ -23,3 +23,5 @@ group :development, :test do
   gem 'sqlite3-ruby'
 end
 
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.9.12'
